@@ -1,39 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-struct node {
-    int data;
-    struct node *next;
-};
+#include "list.h"
 
 struct node *reverse_list(struct node *head);
-void print_list(struct node *head);
 
 int main(void) {
 
-    int amount;
-    printf("Input the number of nodes: ");
-    scanf("%d", &amount);
-
-    struct node *head = malloc(sizeof(struct node));
-    head->data = 0;
-    head->next = NULL;
-
-    struct node *holder = malloc(sizeof(struct node));
-    holder = head;
-
-    int i = 1;
-    while (i < amount) {
-
-        struct node *current = malloc(sizeof(struct node));
-        current->data = i;
-        current->next = NULL;
-        
-        holder->next = current;
-        holder = holder->next;
-        i++;
-    }
-
+    struct node *head = create_list();
     print_list(head);
     head = reverse_list(head);
     print_list(head);
@@ -61,16 +34,4 @@ struct node *reverse_list(struct node *head) {
     // head now points to the very last node, which represents the beginning of reversed list
     head = temp2;
     return head;
-}
-
-// Prints data of linked list in order
-void print_list(struct node *head) {
-    printf("Data entered in the list are:\n");
-
-    struct node *print_data = NULL;
-    print_data = head;
-    while (print_data != NULL) {
-        printf("Data = %d\n", print_data->data);
-        print_data = print_data->next;
-    }
 }
