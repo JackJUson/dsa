@@ -22,7 +22,7 @@ struct node *create_list() {
 
     int i = 1;
     while (i < amount) {
-        printf("Input data for node %d: ", i);
+        printf("Input data for node %d: ", i + 1);
         scanf("%d", &value);
 
         struct node *current = malloc(sizeof(struct node));
