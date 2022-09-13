@@ -11,6 +11,7 @@ struct node {
 }
 
 struct node *create_list();
-    
+
+void print_list(struct node *head);
 
 #endif

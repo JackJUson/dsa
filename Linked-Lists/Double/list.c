@@ -33,3 +33,12 @@ struct node *create_list() {
     return head;
 }
 
+void print_list(struct node *head) {
+    printf("Data entered in the list are: \n");
+    struct node *print_data = head;
+
+    while (print_data != NULL) {
+        printf("Data = %d\n", print_data->data);
+        print_data = print_data->next;
+    }
+}
