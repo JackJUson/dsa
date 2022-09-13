@@ -37,8 +37,10 @@ void print_list(struct node *head) {
     printf("Data entered in the list are: \n");
     struct node *print_data = head;
 
+    int i = 1;
     while (print_data != NULL) {
-        printf("Data = %d\n", print_data->data);
+        printf("Data in node %d = %d\n", i, print_data->data);
         print_data = print_data->next;
+        i++;
     }
 }
