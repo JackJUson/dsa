@@ -44,4 +44,9 @@ TreeInsert(Tree, item):
 */
 
 void showTree(Tree t) {
+    if (t != NULL) {
+        printf("%d\n", t->data);
+        showTree(t->left);
+        showTree(t->right);
+    }
 }
