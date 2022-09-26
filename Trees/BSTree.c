@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "BSTree.h"
 
 typedef struct Node {
@@ -6,8 +9,12 @@ typedef struct Node {
     Tree right;
 } Node;
 
-Tree TreeCreate() {
-    return NULL;
+Tree TreeCreate(Item it) {
+    Tree root = malloc(sizeof(struct Node));
+    root->data = it;
+    root->left = NULL;
+    root->right = NULL;
+    return root;
 }
 
 void TreeFree(Tree t) {
