@@ -7,7 +7,12 @@ int main(int argc, char *argv[]) {
     t = TreeInsert(t, 5);
     t = TreeInsert(t, 1);
     t = TreeInsert(t, 7);
-    t = TreeInsert(t, 3);
-    showTree(t);
+    t = TreeInsert(t, 10);
+    t = TreeInsert(t, 9);
+    t = TreeInsert(t, 8);
+    //showTree(t);
+    showTreeIn(t, 0);
+    //showTreePre(t, 0);
+    //showTreePost(t, 0);
     return 0;
 }
