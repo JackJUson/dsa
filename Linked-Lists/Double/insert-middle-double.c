@@ -32,7 +32,7 @@ struct node *insert_middle_double(struct node *head, int value, int position) {
     temp1->next = temp2->next;
     temp1->data = value;
     temp1->prev = temp2;
-
+    
     temp2->next = temp1;
 
     return head;
