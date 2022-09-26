@@ -21,7 +21,14 @@ void TreeFree(Tree t) {
 }
 
 Tree TreeInsert(Tree t, Item it) {
-    return NULL;
+    if (t == NULL) {
+        return TreeCreate(it);
+    } else if (it < t->data) {
+        t->left = TreeInsert(t->left, it);
+    } else if (it > t->data) {
+        t->right = TreeInsert(t->right, it);
+    }
+    return t;
 }
 
 /*
