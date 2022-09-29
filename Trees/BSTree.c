@@ -3,6 +3,7 @@
 
 #include "BSTree.h"
 
+/* Define tag for tree nodes */
 #define data(node) ((node)->data)
 #define left(node) ((node)->left)
 #define right(node) ((node)->right)
@@ -23,9 +24,9 @@ Tree TreeCreate(Item it) {
 
 void TreeFree(Tree t) {
     if (t != NULL) {
-        TreeFree(t->left);
+        TreeFree(left(t));
+        TreeFree(right(t));
         free(t);
-        TreeFree(t->right);
     }
     return;
 }
@@ -53,6 +54,15 @@ TreeInsert(Tree, item):
         return tree (avoid duplicates)
 */
 
+/* Count number of nodes in Tree */
+Item TreeNumNodes(Tree t) {
+    if (t == NULL) {
+        return 0;
+    } else {
+        return 1 + TreeNumNodes(left(t)) + TreeNumNodes(right(t));
+    }
+}
+
 void showTree(Tree t) {
     if (t != NULL) {
         printf("%d\n", t->data);
@@ -62,6 +72,7 @@ void showTree(Tree t) {
 }
 
 /* Inorder BST Traversal */
+/* Closest looking tree sideways */
 void showTreeIn(Tree t, int depth) {
     if (t != NULL) {
         showTreeIn(t->right, depth + 1);

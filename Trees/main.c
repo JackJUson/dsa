@@ -1,3 +1,7 @@
+// Binary Search Tree ADT Tester ... 
+
+#include <stdlib.h>
+#include <stdio.h>
 #include "BSTree.h"
 
 int main(int argc, char *argv[]) {
@@ -16,6 +20,8 @@ int main(int argc, char *argv[]) {
 
     /* Inorder style print */
     showTreeIn(t, 0);
+
+    printf("Number of nodes in Tree: %d\n", TreeNumNodes(t));
 
     TreeFree(t);
     return 0;
