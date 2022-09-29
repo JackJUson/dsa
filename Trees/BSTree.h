@@ -12,6 +12,8 @@ void showTree(Tree t);
 
 Item TreeNumNodes(Tree t);
 
+bool TreeSearch(Tree t, Item it);
+
 void showTreeIn(Tree t, int zero);
 void showTreePre(Tree t, int zero);
 void showTreePost(Tree t, int zero);

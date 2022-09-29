@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "BSTree.h"
 
 int main(int argc, char *argv[]) {
@@ -22,6 +23,18 @@ int main(int argc, char *argv[]) {
     showTreeIn(t, 0);
 
     printf("Number of nodes in Tree: %d\n", TreeNumNodes(t));
+
+    if (TreeSearch(t, 3)) {
+        printf("Found\n");
+    } else {
+        printf("Not Found\n");
+    }
+
+    if (TreeSearch(t, 10)) {
+        printf("Found\n");
+    } else {
+        printf("Not Found\n");
+    }
 
     TreeFree(t);
     return 0;

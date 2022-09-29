@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "BSTree.h"
 
@@ -60,6 +61,19 @@ Item TreeNumNodes(Tree t) {
         return 0;
     } else {
         return 1 + TreeNumNodes(left(t)) + TreeNumNodes(right(t));
+    }
+}
+
+/* Search item in a Tree */
+bool TreeSearch(Tree t, Item it) {
+    if (t == NULL) {
+        return false;
+    } else if (it < data(t)) {
+        return TreeSearch(left(t), it);
+    } else if (it > data(t)) {
+        return TreeSearch(right(t), it);
+    } else { // it == data(t);
+        return true;
     }
 }
 
