@@ -100,7 +100,7 @@ Tree joinTrees(Tree t1, Tree t2) {
 }
 
 /* Delete a node from a Tree */
-Tree TreeDelete(Tree t, Item t) {
+Tree TreeDelete(Tree t, Item it) {
     if (t != NULL) {
         if (it < data(t))
             left(t) = TreeDelete(left(t), it);
