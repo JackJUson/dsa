@@ -99,6 +99,29 @@ Tree joinTrees(Tree t1, Tree t2) {
     }
 }
 
+/* Delete a node from a Tree */
+Tree TreeDelete(Tree t, Item t) {
+    if (t != NULL) {
+        if (it < data(t))
+            left(t) = TreeDelete(left(t), it);
+        else if (it > data(t))
+            right(t) = TreeDelete(right(t), it);
+        else {
+            Tree new;
+            if (left(t) == NULL && right(t) == NULL)
+                new = NULL;
+            else if (left(t) == NULL)
+                new = right(t);
+            else if (right(t) == NULL)
+                new = left(t);
+            else 
+                new = joinTrees(left(t), right(t));
+            free(t);
+            t = new;
+        }
+    }
+    return t;
+}
 
 /* Prints all elements of tree in List */
 void showTree(Tree t) {

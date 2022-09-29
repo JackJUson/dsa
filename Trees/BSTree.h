@@ -16,6 +16,8 @@ bool TreeSearch(Tree t, Item it);
 
 Tree joinTrees(Tree t1, Tree t2);
 
+Tree TreeDelete(Tree t, Item t);
+
 void showTreeIn(Tree t, int zero);
 void showTreePre(Tree t, int zero);
 void showTreePost(Tree t, int zero);
