@@ -10,9 +10,13 @@ int main(int argc, char *argv[]) {
     t = TreeInsert(t, 10);
     t = TreeInsert(t, 9);
     t = TreeInsert(t, 8);
-    //showTree(t);
+
+    /* List style print */
+    showTree(t);
+
+    /* Inorder style print */
     showTreeIn(t, 0);
-    //showTreePre(t, 0);
-    //showTreePost(t, 0);
+
+    TreeFree(t);
     return 0;
 }

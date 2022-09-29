@@ -3,6 +3,10 @@
 
 #include "BSTree.h"
 
+#define data(node) ((node)->data)
+#define left(node) ((node)->left)
+#define right(node) ((node)->right)
+
 typedef struct Node {
     int data;
     Tree left;
@@ -11,19 +15,25 @@ typedef struct Node {
 
 Tree TreeCreate(Item it) {
     Tree root = malloc(sizeof(struct Node));
-    root->data = it;
-    root->left = NULL;
+    data(root) = it;
+    left(root) = NULL;
     root->right = NULL;
     return root;
 }
 
 void TreeFree(Tree t) {
+    if (t != NULL) {
+        TreeFree(t->left);
+        free(t);
+        TreeFree(t->right);
+    }
+    return;
 }
 
 Tree TreeInsert(Tree t, Item it) {
     if (t == NULL) {
         return TreeCreate(it);
-    } else if (it < t->data) {
+    } else if (it < data(t)) {
         t->left = TreeInsert(t->left, it);
     } else if (it > t->data) {
         t->right = TreeInsert(t->right, it);
