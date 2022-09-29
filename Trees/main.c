@@ -61,5 +61,10 @@ int main(int argc, char *argv[]) {
     printf("Combined Tree:\n");
     showTreeIn(t1, 0);
 
+    t1 = TreeDelete(t1, 30);
+
+    printf("Delete 30 from Tree:\n");
+    showTreeIn(t1, 0);
+
     return 0;
 }
