@@ -35,7 +35,31 @@ int main(int argc, char *argv[]) {
     } else {
         printf("Not Found\n");
     }
-
     TreeFree(t);
+
+    printf("\n");
+
+    Tree t1 = TreeCreate(10);
+    t1 = TreeInsert(t1, 5);
+    t1 = TreeInsert(t1, 14);
+
+    printf("t1 Tree:\n");
+    showTreeIn(t1, 0);
+    printf("\n");
+
+    Tree t2 = TreeCreate(30);
+    t2 = TreeInsert(t2, 24);
+    t2 = TreeInsert(t2, 32);
+    t2 = TreeInsert(t2, 29);
+
+    printf("t2 Tree:\n");
+    showTreeIn(t2, 0);
+    printf("\n");
+
+    t1 = joinTrees(t1, t2);
+
+    printf("Combined Tree:\n");
+    showTreeIn(t1, 0);
+
     return 0;
 }

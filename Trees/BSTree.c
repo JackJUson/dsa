@@ -19,7 +19,7 @@ Tree TreeCreate(Item it) {
     Tree root = malloc(sizeof(struct Node));
     data(root) = it;
     left(root) = NULL;
-    root->right = NULL;
+    right(root) = NULL;
     return root;
 }
 
@@ -66,17 +66,41 @@ Item TreeNumNodes(Tree t) {
 
 /* Search item in a Tree */
 bool TreeSearch(Tree t, Item it) {
-    if (t == NULL) {
+    if (t == NULL) 
         return false;
-    } else if (it < data(t)) {
+    else if (it < data(t)) 
         return TreeSearch(left(t), it);
-    } else if (it > data(t)) {
+    else if (it > data(t)) 
         return TreeSearch(right(t), it);
-    } else { // it == data(t);
+    else  // it == data(t);
         return true;
+}
+
+/* Joins two Trees into one  */
+Tree joinTrees(Tree t1, Tree t2) {
+    if (t1 == NULL)
+        return t1;
+    else if (t2 == NULL)
+        return t2;
+    else {
+        Tree current = t2;
+        Tree parent = NULL;
+
+        while(left(current) != NULL) {      // Find min element in t2
+            parent = current;
+            current = left(current);
+        }
+        if (parent != NULL) {
+            left(parent) = right(current);  // Link the new left of parent to right node of current
+            right(current) = t2;            // Current right as t2, current new root
+        }
+        left(current) = t1;                 // Current left as t1, current new root
+        return current;                     // Return root of tree
     }
 }
 
+
+/* Prints all elements of tree in List */
 void showTree(Tree t) {
     if (t != NULL) {
         printf("%d\n", t->data);
