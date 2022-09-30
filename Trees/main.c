@@ -85,5 +85,9 @@ int main(int argc, char *argv[]) {
     printf("\nTree n1 after rotate right:\n");
     showTreeIn(n1, 0);
 
+    n1 = rotateLeft(n1);
+    printf("\nTree n1 after rotate left:\n");
+    showTreeIn(n1, 0);
+
     return 0;
 }

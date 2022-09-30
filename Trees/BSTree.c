@@ -133,6 +133,16 @@ Tree rotateRight(Tree n1) {
     return n2;
 }
 
+/* Rotating tree to the left */
+Tree rotateLeft(Tree n1) {
+    if (n1 == NULL || right(n1) == NULL)
+        return n1;
+    Tree n2 = right(n1);
+    right(n1) = left(n2);
+    left(n2) = n1;
+    return n2;
+}
+
 /* Prints all elements of tree in List */
 void showTree(Tree t) {
     if (t != NULL) {
