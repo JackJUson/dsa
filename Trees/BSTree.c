@@ -123,6 +123,16 @@ Tree TreeDelete(Tree t, Item it) {
     return t;
 }
 
+/* Rotating tree to the right */
+Tree rotateRight(Tree n1) {
+    if (n1 == NULL || left(n1) == NULL)
+        return n1;
+    Tree n2 = left(n1);
+    left(n1) = right(n2);
+    right(n2) = n1;
+    return n2;
+}
+
 /* Prints all elements of tree in List */
 void showTree(Tree t) {
     if (t != NULL) {

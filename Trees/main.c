@@ -73,5 +73,17 @@ int main(int argc, char *argv[]) {
     printf("Delete 24 from Tree t1:\n");
     showTreeIn(t4, 0);
 
+    Tree n1 = TreeCreate(5);
+    n1 = TreeInsert(n1, 6);
+    n1 = TreeInsert(n1, 3);
+    n1 = TreeInsert(n1, 2);
+    n1 = TreeInsert(n1, 4);
+
+    printf("\nTree n1:\n");
+    showTreeIn(n1, 0);
+    n1 = rotateRight(n1);
+    printf("\nTree n1 after rotate right:\n");
+    showTreeIn(n1, 0);
+
     return 0;
 }
