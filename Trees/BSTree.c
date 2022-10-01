@@ -143,6 +143,22 @@ Tree rotateLeft(Tree n1) {
     return n2;
 }
 
+/* Partitioning Tree */
+Tree partition(Tree t, int i) {
+    if (t != NULL) {
+        // assert(0 <= i && i < TreeNumNodes(t));
+        int m = TreeNumNodes(left(t));
+        if (i < m) {
+            left(t) = partition(left(t), i);
+            t = rotateRight(t);
+        } else if (i > m) {
+            right(t) = partition(right(t), i - m - 1);
+            t = rotateLeft(t);
+        }
+    }
+    return t;
+}
+
 /* Prints all elements of tree in List */
 void showTree(Tree t) {
     if (t != NULL) {
