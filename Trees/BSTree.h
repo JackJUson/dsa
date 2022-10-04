@@ -24,6 +24,9 @@ Tree rotateLeft(Tree n1);
 
 Tree partition(Tree t, int i);
 
+Tree BSTreeGetSmallest(Tree t);
+
+
 void showTreeIn(Tree t, int zero);
 void showTreePre(Tree t, int zero);
 void showTreePost(Tree t, int zero);
