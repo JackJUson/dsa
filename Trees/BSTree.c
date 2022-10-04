@@ -159,6 +159,18 @@ Tree partition(Tree t, int i) {
     return t;
 }
 
+/* Get the smallest element of tree */
+Tree BSTreeGetSmallest(Tree t) {
+    if (t == NULL)
+        return NULL;
+    else if (t->left == NULL)
+        return t;
+    else
+        return BSTreeGetSmallest(t->left);
+}
+
+
+
 /* Prints all elements of tree in List */
 void showTree(Tree t) {
     if (t != NULL) {
@@ -176,7 +188,7 @@ void showTreeIn(Tree t, int depth) {
         for (int i = 0; i < depth; i++) {
             printf("  ");
         }
-        printf("%d\n", t->data);
+        printf("%d", t->data);
         showTreeIn(t->left, depth + 1);
     }
 }
@@ -187,7 +199,7 @@ void showTreePre(Tree t, int depth) {
         for (int i = 0; i < depth; i++) {
             printf("  ");
         }
-        printf("%d\n", t->data);
+        printf("%d", t->data);
         showTreePre(t->left, depth + 1);
         showTreePre(t->right, depth + 1);
     }
@@ -201,6 +213,6 @@ void showTreePost(Tree t, int depth) {
         for (int i = 0; i < depth; i++) {
             printf("  ");
         }
-        printf("%d\n", t->data);
+        printf("%d", t->data);
     }
 }
