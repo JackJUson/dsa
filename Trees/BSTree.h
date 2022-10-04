@@ -28,6 +28,8 @@ Tree BSTreeGetSmallest(Tree t);
 
 int TreeHeight(Tree t);
 
+int BSTreeNodeHeight(Tree t, int key);
+
 void showTreeIn(Tree t, int zero);
 void showTreePre(Tree t, int zero);
 void showTreePost(Tree t, int zero);
