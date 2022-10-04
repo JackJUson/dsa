@@ -26,6 +26,7 @@ Tree partition(Tree t, int i);
 
 Tree BSTreeGetSmallest(Tree t);
 
+int TreeHeight(Tree t);
 
 void showTreeIn(Tree t, int zero);
 void showTreePre(Tree t, int zero);
