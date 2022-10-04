@@ -169,7 +169,16 @@ Tree BSTreeGetSmallest(Tree t) {
         return BSTreeGetSmallest(t->left);
 }
 
-
+/* Get the height of a tree */
+int TreeHeight(Tree t) {
+    if (t == NULL)
+        return -1;
+    else {
+        int l = TreeHeight(t->left);
+        int r = TreeHeight(t->right);
+        return 1 + (l > r ? l : r);
+    }
+}
 
 /* Prints all elements of tree in List */
 void showTree(Tree t) {
