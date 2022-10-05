@@ -8,3 +8,21 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
+int firstCmp(int val1, int val2) {
+    if (val1 < val2)
+        return -1;
+    else if (val1 > val2)
+        return 1;
+    else
+        return 0;
+}
+
+int secondCmp(int val1, int val2) {
+    if (val1 < val2)
+        return 1;
+    else if (val1 > val2)
+        return -1;
+    else
+        return 0;
+}
