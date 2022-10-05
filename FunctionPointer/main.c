@@ -7,6 +7,12 @@ int process(int *a, int n, int(*fp)(int, int));
 
 int main(int argc, char *argv[]) {
 
+    int marksA[] = {67, 34, 81, 44, 19};
+    int ans1 = process(marksA, 5, firstCmp);
+    printf("ans1 is %d\n\n", ans1);
+
+    int ans2 = process(marksA, 5, firstCmp);
+    printf("ans2 is %d\n\n", ans2);
 
     return 0;
 }
