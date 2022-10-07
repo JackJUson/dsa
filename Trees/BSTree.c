@@ -1,15 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <assert.h>
 
 #include "BSTree.h"
 #include "BSTPrint.h"
-
-/* Define tag for tree nodes */
-#define data(node) ((node)->data)
-#define left(node) ((node)->left)
-#define right(node) ((node)->right)
 
 Tree TreeCreate(Item it) {
     Tree root = malloc(sizeof(struct Node));
@@ -39,7 +33,7 @@ Tree TreeInsert(Tree t, Item it) {
     return t;
 }
 
-/*
+/* Pseudo code for Tree Insert
 TreeInsert(Tree, item):
     if Tree is empty:
         return new root node containing item
@@ -118,61 +112,6 @@ Tree TreeDelete(Tree t, Item it) {
     }
     return t;
 }
-
-/* Rotating tree to the right */
-Tree rotateRight(Tree n1) {
-    if (n1 == NULL || left(n1) == NULL)
-        return n1;
-    Tree n2 = left(n1);
-    left(n1) = right(n2);
-    right(n2) = n1;
-    return n2;
-}
-
-/* Rotating tree to the left */
-Tree rotateLeft(Tree n1) {
-    if (n1 == NULL || right(n1) == NULL)
-        return n1;
-    Tree n2 = right(n1);
-    right(n1) = left(n2);
-    left(n2) = n1;
-    return n2;
-}
-
-/* Inserting at the root */
-/* And rotating the tree to make the new node the new root */
-Tree insertAtRoot(Tree t, Item it) {
-    Tree root = t;
-    if (t == NULL) {
-        t = TreeCreate(it);
-    } else if (it < data(root)) {
-        left(t) = insertAtRoot(left(t), it);
-        t = rotateRight(t);
-    } else if (it > data(root)) {
-        right(t) = insertAtRoot(right(t), it);
-        t = rotateLeft(t);
-    }
-    return t;
-}
-
-/* Partitioning Tree */
-/* Rearranging tree to make node with index i becomes root */
-/* Index of node are based on pre-order, smallest -> biggest */
-Tree partition(Tree t, int index) {
-    if (t != NULL) {
-        assert(0 <= index && index < TreeNumNodes(t));
-        int m = TreeNumNodes(left(t));
-        if (index < m) {
-            left(t) = partition(left(t), index);
-            t = rotateRight(t);
-        } else if (index > m) {
-            right(t) = partition(right(t), index - m - 1);
-            t = rotateLeft(t);
-        }
-    }
-    return t;
-}
- 
 
 /* Get the smallest element of tree */
 Tree BSTreeGetSmallest(Tree t) {

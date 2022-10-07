@@ -10,6 +10,11 @@ typedef struct Node {
     Tree right;
 } Node;
 
+/* Define tag for tree nodes */
+#define data(node) ((node)->data)
+#define left(node) ((node)->left)
+#define right(node) ((node)->right)
+
 typedef int Item;
 
 Tree TreeCreate(Item it);
@@ -26,16 +31,6 @@ bool TreeSearch(Tree t, Item it);
 Tree joinTrees(Tree t1, Tree t2);
 
 Tree TreeDelete(Tree t, Item it);
-
-Tree rotateRight(Tree n1);
-
-Tree rotateLeft(Tree n1);
-
-
-Tree insertAtRoot(Tree t, Item it);
-
-Tree partition(Tree t, int index);
-
 
 Tree BSTreeGetSmallest(Tree t);
 
