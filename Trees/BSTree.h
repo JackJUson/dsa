@@ -18,24 +18,10 @@ typedef struct Node {
 typedef int Item;
 
 Tree TreeCreate(Item it);
-
 void TreeFree(Tree t);
-
 Tree TreeInsert(Tree t, Item it);
-
-
-Item TreeNumNodes(Tree t);
-
 bool TreeSearch(Tree t, Item it);
-
 Tree joinTrees(Tree t1, Tree t2);
-
 Tree TreeDelete(Tree t, Item it);
-
-Tree BSTreeGetSmallest(Tree t);
-
-int TreeHeight(Tree t);
-
-int BSTreeNodeHeight(Tree t, int key);
 
 #endif

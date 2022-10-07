@@ -5,6 +5,7 @@
 
 #include "BSTree.h"
 #include "BSTBalance.h"
+#include "BSTProperty.h"
 
 /* Rotating tree to the right */
 Tree rotateRight(Tree n1) {
