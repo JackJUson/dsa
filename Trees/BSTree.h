@@ -22,7 +22,11 @@ Tree rotateRight(Tree n1);
 
 Tree rotateLeft(Tree n1);
 
-Tree partition(Tree t, int i);
+
+Tree insertAtRoot(Tree t, Item it);
+
+Tree partition(Tree t, int index);
+
 
 Tree BSTreeGetSmallest(Tree t);
 
