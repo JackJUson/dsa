@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 
 #include "BSTree.h"
 
@@ -160,9 +161,11 @@ Tree insertAtRoot(Tree t, Item it) {
 }
 
 /* Partitioning Tree */
+/* Rearranging tree to make node with index i becomes root */
+/* Index of node are based on pre-order, smallest -> biggest */
 Tree partition(Tree t, int index) {
     if (t != NULL) {
-        //assert(0 <= index && index < TreeNumNodes(t));
+        assert(0 <= index && index < TreeNumNodes(t));
         int m = TreeNumNodes(left(t));
         if (index < m) {
             left(t) = partition(left(t), index);
