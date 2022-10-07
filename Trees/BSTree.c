@@ -143,21 +143,38 @@ Tree rotateLeft(Tree n1) {
     return n2;
 }
 
+/* Inserting at the root */
+/* And rotating the tree to make the new node the new root */
+Tree insertAtRoot(Tree t, Item it) {
+    Tree root = t;
+    if (t == NULL) {
+        t = TreeCreate(it);
+    } else if (it < data(root)) {
+        left(t) = insertAtRoot(left(t), it);
+        t = rotateRight(t);
+    } else if (it > data(root)) {
+        right(t) = insertAtRoot(right(t), it);
+        t = rotateLeft(t);
+    }
+    return t;
+}
+
 /* Partitioning Tree */
-Tree partition(Tree t, int i) {
+Tree partition(Tree t, int index) {
     if (t != NULL) {
-        // assert(0 <= i && i < TreeNumNodes(t));
+        //assert(0 <= index && index < TreeNumNodes(t));
         int m = TreeNumNodes(left(t));
-        if (i < m) {
-            left(t) = partition(left(t), i);
+        if (index < m) {
+            left(t) = partition(left(t), index);
             t = rotateRight(t);
-        } else if (i > m) {
-            right(t) = partition(right(t), i - m - 1);
+        } else if (index > m) {
+            right(t) = partition(right(t), index - m - 1);
             t = rotateLeft(t);
         }
     }
     return t;
 }
+ 
 
 /* Get the smallest element of tree */
 Tree BSTreeGetSmallest(Tree t) {
@@ -184,9 +201,9 @@ int TreeHeight(Tree t) {
 int BSTreeNodeHeight(Tree t, int key) {
     if (t == NULL)
         return -1;
-    else if (key == t->value)
+    else if (key == data(t))
         return 0;
-    else if (key < t->value) {
+    else if (key < data(t)) {
         int depth = BSTreeNodeHeight(t->left, key);
         return (depth == -1 ? -1 : depth + 1);
     } else {
@@ -212,7 +229,7 @@ void showTreeIn(Tree t, int depth) {
         for (int i = 0; i < depth; i++) {
             printf("  ");
         }
-        printf("%d", t->data);
+        printf("%d\n", t->data);
         showTreeIn(t->left, depth + 1);
     }
 }
@@ -223,7 +240,7 @@ void showTreePre(Tree t, int depth) {
         for (int i = 0; i < depth; i++) {
             printf("  ");
         }
-        printf("%d", t->data);
+        printf("%d\n", t->data);
         showTreePre(t->left, depth + 1);
         showTreePre(t->right, depth + 1);
     }
@@ -237,6 +254,6 @@ void showTreePost(Tree t, int depth) {
         for (int i = 0; i < depth; i++) {
             printf("  ");
         }
-        printf("%d", t->data);
+        printf("%d\n", t->data);
     }
 }
