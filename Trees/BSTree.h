@@ -1,4 +1,14 @@
+
+#ifndef BSTREE_H
+#define BSTREE_H
+
 typedef struct Node *Tree;
+
+typedef struct Node {
+    int data;
+    Tree left;
+    Tree right;
+} Node;
 
 typedef int Item;
 
@@ -8,7 +18,6 @@ void TreeFree(Tree t);
 
 Tree TreeInsert(Tree t, Item it);
 
-void showTree(Tree t);
 
 Item TreeNumNodes(Tree t);
 
@@ -34,6 +43,4 @@ int TreeHeight(Tree t);
 
 int BSTreeNodeHeight(Tree t, int key);
 
-void showTreeIn(Tree t, int zero);
-void showTreePre(Tree t, int zero);
-void showTreePost(Tree t, int zero);
+#endif

@@ -4,17 +4,12 @@
 #include <assert.h>
 
 #include "BSTree.h"
+#include "BSTPrint.h"
 
 /* Define tag for tree nodes */
 #define data(node) ((node)->data)
 #define left(node) ((node)->left)
 #define right(node) ((node)->right)
-
-typedef struct Node {
-    int data;
-    Tree left;
-    Tree right;
-} Node;
 
 Tree TreeCreate(Item it) {
     Tree root = malloc(sizeof(struct Node));
@@ -212,51 +207,5 @@ int BSTreeNodeHeight(Tree t, int key) {
     } else {
         int depth = BSTreeNodeHeight(t->right, key);
         return (depth == -1 ? -1 : depth + 1);
-    }
-}
-
-/* Prints all elements of tree in List */
-void showTree(Tree t) {
-    if (t != NULL) {
-        printf("%d\n", t->data);
-        showTree(t->left);
-        showTree(t->right);
-    }
-}
-
-/* Inorder BST Traversal */
-/* Closest looking tree sideways */
-void showTreeIn(Tree t, int depth) {
-    if (t != NULL) {
-        showTreeIn(t->right, depth + 1);
-        for (int i = 0; i < depth; i++) {
-            printf("  ");
-        }
-        printf("%d\n", t->data);
-        showTreeIn(t->left, depth + 1);
-    }
-}
-
-/* Preorder BST Traversal */
-void showTreePre(Tree t, int depth) {
-    if (t != NULL) {
-        for (int i = 0; i < depth; i++) {
-            printf("  ");
-        }
-        printf("%d\n", t->data);
-        showTreePre(t->left, depth + 1);
-        showTreePre(t->right, depth + 1);
-    }
-}
-
-/* Postorder BST Traversal */
-void showTreePost(Tree t, int depth) {
-    if (t != NULL) {
-        showTreePost(t->left, depth + 1);
-        showTreePost(t->right, depth + 1);
-        for (int i = 0; i < depth; i++) {
-            printf("  ");
-        }
-        printf("%d\n", t->data);
     }
 }
