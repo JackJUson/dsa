@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <assert.h>
 
 #include "BSTree.h"
 #include "BSTPrint.h"
