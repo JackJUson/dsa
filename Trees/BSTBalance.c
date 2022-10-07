@@ -60,3 +60,15 @@ Tree partition(Tree t, int index) {
     }
     return t;
 }
+
+/* Periodic Rebalancing */
+/* Only rebalance tree after a certain amount of inputs/actions */
+Tree rebalance(Tree t) {
+    int n = TreeNumNodes(t);
+    if (n >= 3) {
+        t = partition(t, n/2);              // put node with median key at root
+        left(t) = rebalance(left(t));       // then rebalance each subtree
+        right(t) = rebalance(right(t));
+    }
+    return t;
+}
