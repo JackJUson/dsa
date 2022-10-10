@@ -50,3 +50,13 @@ int BSTreeNodeHeight(Tree t, int key) {
         return (depth == -1 ? -1 : depth + 1);
     }
 }
+
+// Counts the number of leaves in the given BSTree
+int BSTreeNumLeaves(BSTree t) {
+	if (t == NULL) {
+		return 0;
+	} else if (t->left == NULL && t->right == NULL) {
+		return 1;
+	}
+	return BSTreeNumLeaves(t->left) + BSTreeNumLeaves(t->right);
+}
