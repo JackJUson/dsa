@@ -60,3 +60,17 @@ int BSTreeNumLeaves(BSTree t) {
 	}
 	return BSTreeNumLeaves(t->left) + BSTreeNumLeaves(t->right);
 }
+
+// Deletes all of the leaves in the given BSTree and returns the root of
+// the updated BSTree
+BSTree BSTreeDeleteLeaves(BSTree t) {
+	if (t == NULL) {
+		return NULL;
+	} else if (t->left == NULL && t->right == NULL) {
+		free(t);
+		return NULL;
+	}
+	t->left = BSTreeDeleteLeaves(t->left);
+	t->right = BSTreeDeleteLeaves(t->right);
+	return t;
+}
