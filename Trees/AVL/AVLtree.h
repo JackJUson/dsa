@@ -7,6 +7,7 @@ typedef struct Node {
     int data;
     Tree left;
     Tree right;
+    int height;
 } Node;
 
 /* Define tag for tree nodes */
