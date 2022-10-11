@@ -4,6 +4,15 @@
 
 #include "AVLtree.h"
 
+
+int height(Tree t) {
+    if (t == NULL) {
+        return 0;
+    }
+    return 1 + max(height(t->left), height(t->right));
+}
+
+
 Tree insertAVL(Tree t, Item it) {
     /* 1. Perform the normal BST insertion */
     if (t == NULL) 
@@ -17,7 +26,7 @@ Tree insertAVL(Tree t, Item it) {
         return t;
 
     /* 2. Update height of this ancestor node */
-    t->height = updateHeight(t);
+    t->height = height(t);
 
     /* 3. Get the balance factor of this ancestor
           node to check whether this node is unbalanced. 
@@ -44,6 +53,8 @@ Tree insertAVL(Tree t, Item it) {
         return rightRotate(t);
     }
     
+    // Right Left Case
+    // Right subtree is bigger by 1
     if (balance < -1 && it < t->right->data) {
         t->right = rightRotate(t->right);
         return leftRotate(t);
