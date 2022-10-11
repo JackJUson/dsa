@@ -16,4 +16,11 @@ Tree insertAVL(Tree t, Item it) {
     else // Data already existing, tree is just returned
         return t;
 
+    /* 2. Update height of this ancestor node */
+    t->height = updateHeight(t);
+
+    /* 3. Get the balance factor of this ancestor
+          node to check whether this node is unbalanced */
+    int balance = getBalance(t);
+
 }
