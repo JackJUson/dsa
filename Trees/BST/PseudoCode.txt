@@ -1,0 +1,40 @@
+
+
+/* Pseudo code for Tree Insert
+TreeInsert(Tree, item):
+    if Tree is empty:
+        return new root node containing item
+    else if item < Tree's value:
+        Tree's left child = TreeInsert(Tree's left child , item)
+    else if item > Tree's value:
+        Tree's right child = TreeInsert(Tree's right child, item)
+    else:
+        return tree (avoid duplicates)
+*/
+
+/* Pseudo Code for AVL Tree Insert
+AVL Tree Performance = O(log(n))
+
+insertAVL(tree, item):
+    if tree is empty:                           // Tree emtpy -> return containing new node
+        return new node containing item
+    else if item = data(tree):                  // Item already containing -> return tree
+        return tree
+
+    if item < data(tree):
+        left(tree) = insertAVL(left(tree), item)
+    else if item > data(tree):
+        right(tree) = insertAVL(right(tree), item)
+    LHeight = height(left(tree))
+    RHeight = height(right(tree))
+    if (LHeight - RHeight) > 1:
+        if item > data(left(tree)):
+            left(tree) = rotateLeft(left(tree))
+        tree = rotateRight(tree)
+    else if (RHeight - LHeight) > 1:
+        if item < data(right(tree)) then
+            right(tree) = rotateRight(right(tree))
+        tree = rotateLeft(tree)
+    return tree
+
+*/
