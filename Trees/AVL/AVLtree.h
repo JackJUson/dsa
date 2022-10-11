@@ -17,7 +17,8 @@ typedef struct Node {
 
 typedef int Item;
 
-
+int height(Tree t);
 Tree insertAVL(Tree t, Item it);
+
 
 #endif
