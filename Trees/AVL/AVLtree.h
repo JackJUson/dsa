@@ -18,6 +18,7 @@ typedef struct Node {
 typedef int Item;
 
 int height(Tree t);
+int max(int a, int b);
 Tree insertAVL(Tree t, Item it);
 
 
