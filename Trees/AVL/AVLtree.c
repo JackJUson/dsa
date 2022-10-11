@@ -12,6 +12,10 @@ int height(Tree t) {
     return 1 + max(height(t->left), height(t->right));
 }
 
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
 
 Tree insertAVL(Tree t, Item it) {
     /* 1. Perform the normal BST insertion */
