@@ -57,6 +57,15 @@ Tree leftRotate(Tree x) {
     return y;
 }
 
+int getBalance(Tree t) {
+    // If tree is empty, return height 0
+    if (t == NULL) {
+        return 0;
+    }
+    // Return the difference of Left and Right
+    return height(t->left) - height(t->right);
+}
+
 Tree insertAVL(Tree t, Item it) {
     /* 1. Perform the normal BST insertion */
     if (t == NULL) 
