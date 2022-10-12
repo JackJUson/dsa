@@ -16,11 +16,37 @@ int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
+Tree TreeCreate(Item it) {
+    Tree root = malloc(sizeof(struct Node));
+    data(root) = it;
+    left(root) = NULL;
+    right(root) = NULL;
+    root->height = 0;
+    return root;
+}
+
+Tree rightRotate(Tree y) {
+    Tree x = y->left;
+    Tree T2 = x->right;
+
+    // Perform right rotation
+    x->right = y;
+    y->left = T2;
+
+    // Update Heights
+    y->height = height(y);
+    x->height = height(x);
+
+    // Return new root
+    return x;
+}
+
+
 
 Tree insertAVL(Tree t, Item it) {
     /* 1. Perform the normal BST insertion */
     if (t == NULL) 
-        return (newNode(it));
+        return (TreeCreate(it));
 
     if (it < t->data) // Searching through left
         t->left = insertAVL(t->left, it);
