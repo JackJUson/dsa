@@ -24,5 +24,6 @@ Tree insertAVL(Tree t, Item it);
 
 Tree rightRotate(Tree y);
 Tree leftRotate(Tree y);
+int getBalance(Tree t);
 
 #endif
