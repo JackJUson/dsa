@@ -23,5 +23,6 @@ Tree TreeCreate(Item it);
 Tree insertAVL(Tree t, Item it);
 
 Tree rightRotate(Tree y);
+Tree leftRotate(Tree y);
 
 #endif
