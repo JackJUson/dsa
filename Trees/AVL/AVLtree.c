@@ -41,7 +41,21 @@ Tree rightRotate(Tree y) {
     return x;
 }
 
+Tree leftRotate(Tree x) {
+    Tree y = x->right;
+    Tree T2 = y->left;
 
+    // Perform left rotation
+    y->left = x;
+    x->right = T2;
+
+    // Update Heights
+    x->height = height(x);
+    y->height = height(y);
+
+    // Return new root
+    return y;
+}
 
 Tree insertAVL(Tree t, Item it) {
     /* 1. Perform the normal BST insertion */
