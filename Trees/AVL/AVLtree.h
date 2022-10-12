@@ -19,7 +19,9 @@ typedef int Item;
 
 int height(Tree t);
 int max(int a, int b);
+Tree TreeCreate(Item it);
 Tree insertAVL(Tree t, Item it);
 
+Tree rightRotate(Tree y);
 
 #endif
