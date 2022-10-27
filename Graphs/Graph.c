@@ -77,3 +77,13 @@ void showGraph(Graph g) {
         }
     }
 }
+
+void freeGraph(Graph g) {
+    assert(g != NULL);
+
+    for (int i =0; i < g->nV; i++) {
+        free(g->edges[i]);
+    }
+    free(g->edges);
+    free(g);
+}
