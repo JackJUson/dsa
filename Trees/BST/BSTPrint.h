@@ -6,6 +6,6 @@ void showTree(Tree t);
 void showTreeIn(Tree t, int zero);
 void showTreePre(Tree t, int zero);
 void showTreePost(Tree t, int zero);
-void BSTreeLevelOrder(BSTree t);
+//void BSTreeLevelOrder(Tree t);
 
 #endif
