@@ -31,3 +31,18 @@ Graph newGraph(int V) {
     }
     return g;
 }
+
+// check if vertex is valid in a graph
+ static bool validV(Graph g, Vertex v) {
+   return (g != NULL && v >= 0 && v < g->nV);
+}
+
+void insertEdge(Graph g, Edge e) {
+    assert(g != NULL && validV(g, e.v) && validV(g, e.w));
+
+    if (!g->edges[e.v][e.w]) { // edge e not in graph
+        g->edges[e.v][e.w] = 1;
+        g->edges[e.w][e.v] = 1;
+        g->nE++;
+    }
+}
