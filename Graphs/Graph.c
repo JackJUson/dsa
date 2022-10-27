@@ -63,3 +63,17 @@ bool adjacent(Graph g, Vertex v, Vertex w) {
 
     return (g->edges[v][w] != 0);
 }
+
+void showGraph(Graph g) {
+    assert(g != NULL);
+    int i, j;
+
+    printf("Number of vertices: %d\n", g->nV);
+    printf("Number of edges: %d\n", g->nE);
+    for (i = 0; i < g->nV; i++) {
+        for (j = i + 1; j < g->nV; j++) {
+            if (g->edges[i][j])
+                printf("Edge %d -%d\n", i, j);
+        }
+    }
+}
