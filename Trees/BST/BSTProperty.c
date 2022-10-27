@@ -52,7 +52,7 @@ int BSTreeNodeHeight(Tree t, int key) {
 }
 
 // Counts the number of leaves in the given BSTree
-int BSTreeNumLeaves(BSTree t) {
+int BSTreeNumLeaves(Tree t) {
 	if (t == NULL) {
 		return 0;
 	} else if (t->left == NULL && t->right == NULL) {
@@ -63,7 +63,7 @@ int BSTreeNumLeaves(BSTree t) {
 
 // Deletes all of the leaves in the given BSTree and returns the root of
 // the updated BSTree
-BSTree BSTreeDeleteLeaves(BSTree t) {
+Tree BSTreeDeleteLeaves(Tree t) {
 	if (t == NULL) {
 		return NULL;
 	} else if (t->left == NULL && t->right == NULL) {
