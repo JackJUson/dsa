@@ -56,3 +56,10 @@ void removeEdge(Graph g, Edge e) {
         g->nE--;
     }
 }
+
+// Returns true if vertex is adjacent to each other
+bool adjacent(Graph g, Vertex v, Vertex w) {
+    assert(g != NULL && validV(g, v) && validV(g, w));
+
+    return (g->edges[v][w] != 0);
+}
