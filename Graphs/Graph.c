@@ -46,3 +46,13 @@ void insertEdge(Graph g, Edge e) {
         g->nE++;
     }
 }
+
+void removeEdge(Graph g, Edge e) {
+    assert(g!= NULL && validV(g, e.v) && validV(g, e.W));
+
+    if (g->edges[e.v][e.w]) { // edge e in graph
+        g->edges[e.v][e.w] = 0;
+        g->edges[e.w][e.v] = 0;
+        g->nE--;
+    }
+}
