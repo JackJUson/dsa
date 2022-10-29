@@ -11,6 +11,8 @@ Tree BSTreeDeleteLeaves(Tree t);
 
 int BSTreeCountOdds(Tree t);
 int BSTreeCountInternal(Tree t);
-int BSTreeCountGreater(BSTree t, int val);
+int BSTreeCountGreater(Tree t, int val);
+
+int isHeightBalanced(Tree t);
 
 #endif

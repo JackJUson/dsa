@@ -6,6 +6,8 @@
 #include "BSTree.h"
 #include "BSTProperty.h"
 
+#define NOT_HEIGHT_BALANCED -99
+
 /* Count number of nodes in Tree */
 Item TreeNumNodes(Tree t) {
     if (t == NULL) {
@@ -102,7 +104,7 @@ int BSTreeCountInternal(Tree t) {
 }
 
 /* Counts values that are greater than the given val */
-int BSTreeCountGreater(BSTree t, int val) {
+int BSTreeCountGreater(Tree t, int val) {
     if (t == NULL) {
         return 0;
     } else if (t->data > val) {
@@ -110,4 +112,24 @@ int BSTreeCountGreater(BSTree t, int val) {
     } else {
         return BSTreeCountGreater(t->right, val);
     }
+}
+
+/* Checks if the tree or subtree is height balanced */
+int isHeightBalanced(Tree t) {
+    if (t == NULL) {
+        return -1;
+    }
+    int hl = isHeightBalanced(t->left);
+    int hr = isHeightBalanced(t->right);
+
+    if (hl == NOT_HEIGHT_BALANCED || hr == NOT_HEIGHT_BALANCED) {
+        return NOT_HEIGHT_BALANCED;
+    }
+
+    int diff = hl - hr;
+    if (diff < -1 || diff > 1) {
+        return NOT_HEIGHT_BALANCED;
+    }
+
+    return (hl > hr ? hl : hr) + 1;
 }
