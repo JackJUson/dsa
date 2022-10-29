@@ -18,8 +18,10 @@ Item TreeNumNodes(Tree t) {
 /* Get the height of a tree */
 int TreeHeight(Tree t) {
     if (t == NULL)
-        return -1;
-    else {
+        return 0;
+    else if (t->left == NULL && t->right == NULL) {
+        return 0;
+    } else {
         int l = TreeHeight(t->left);
         int r = TreeHeight(t->right);
         return 1 + (l > r ? l : r);
@@ -73,4 +75,28 @@ Tree BSTreeDeleteLeaves(Tree t) {
 	t->left = BSTreeDeleteLeaves(t->left);
 	t->right = BSTreeDeleteLeaves(t->right);
 	return t;
+}
+
+/* Counts the odd values in the tree */
+int BSTreeCountOdds(Tree t) {
+    if (t == NULL) {
+        return 0;
+    } else if (t->data % 2 != 0) {
+        return 1 + BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
+    } else {
+        return BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right)
+    }
+}
+
+/* Counts the internal node of a tree (Internal node = node with least one subtree)*/
+int BSTreeCountInternal(Tree t) {
+    if (t == NULL) {
+        return 0;
+    } else if (t->left == NULL && t->right == NULL) {
+        return 0;
+    } else {
+        int l = BSTreeCountInternal(t->left);
+        int r = BSTreeCountInternal(t->right);
+        return 1 + l + r;
+    }
 }

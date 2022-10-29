@@ -9,4 +9,7 @@ int BSTreeNodeHeight(Tree t, int key);
 int BSTreeNumLeaves(Tree t);
 Tree BSTreeDeleteLeaves(Tree t);
 
+int BSTreeCountOdds(Tree t);
+int BSTreeCountInternal(Tree t);
+
 #endif
