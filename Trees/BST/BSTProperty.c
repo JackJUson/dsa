@@ -100,3 +100,14 @@ int BSTreeCountInternal(Tree t) {
         return 1 + l + r;
     }
 }
+
+/* Counts values that are greater than the given val */
+int BSTreeCountGreater(BSTree t, int val) {
+    if (t == NULL) {
+        return 0;
+    } else if (t->data > val) {
+        return 1 + BSTreeCountGreater(t->right, val) + BSTreeCountGreater(t->left, val);
+    } else {
+        return BSTreeCountGreater(t->right, val);
+    }
+}

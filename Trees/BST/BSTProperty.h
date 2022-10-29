@@ -11,5 +11,6 @@ Tree BSTreeDeleteLeaves(Tree t);
 
 int BSTreeCountOdds(Tree t);
 int BSTreeCountInternal(Tree t);
+int BSTreeCountGreater(BSTree t, int val);
 
 #endif
