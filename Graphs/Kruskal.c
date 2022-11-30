@@ -40,3 +40,40 @@ KruskalMST(G):
 |  |  end if
 |  end for
 */
+
+Graph GraphMST(Graph g) {
+    int nV = GraphNumVertices(g);
+
+    // Create a new empty graph
+    Graph mst = GraphNew(nV);
+    PQ pq = PQNew();
+    
+    // Loop through the adjacency matrix containing weights of edges
+    for (int v = 0; v < nV; v++) {
+        for (int w = 0; w < nV; w++) {
+            // If vertices are different and an edge is adjacent
+            if (w != v && g->edges[v][w] != 0) {
+                double weight = g->edges[v][w];
+                PQInsert(pq, (Edge){v, w, weight});
+            }
+        }
+    }
+
+    // If the queue is not empty, add lowest weight edge into MST
+    while (mst->nE < g->nV - 1 && !PQIsEmpty(pq)) {
+        Edge e = PQExtract(pq);
+        GraphInsertEdge(mst, e);
+        // If graph has a cycle, remove the added edge
+        if (GraphHasCycle(mst)) {
+            GraphRemoveEdge(mst, e.v, e.w);
+        }
+    }
+    
+    PQFree(pq);
+    if (mst->nE == g->nV -1) {
+        return mst;
+    } else {
+        GraphFree(mst);
+        return NULL;
+    }
+}
