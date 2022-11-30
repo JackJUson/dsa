@@ -9,10 +9,14 @@ Graph KruskalMST(Graph g) {
 
     // Empty Graph with just the vertices
     Graph mst = GraphNew();
+
+    // Heavy lifting sort function
+    // O(E * logE)
     int *sortedEdges = GraphSortEdgesByWeight(g);
     int sortedEdgeLength = GraphNumEdges(g);
     for (int i = 0; i < sortedEdgeLength; i++) {
         GraphInsertEdge(mst, sortedEdges[i]);
+        // Cycle checking = O(v^2)
         if (GraphHasCycle(mst)) {
             GraphRemoveEdge(mst, sortedEdges[i]);
         }
@@ -41,6 +45,7 @@ KruskalMST(G):
 |  end for
 */
 
+// Kruskal Algorithm using Priority Queue 
 Graph GraphMST(Graph g) {
     int nV = GraphNumVertices(g);
 
