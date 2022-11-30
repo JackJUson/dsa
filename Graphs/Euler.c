@@ -34,3 +34,40 @@ bool isEulerPath(Graph g, Edge e[], int nE) {
     }
     return true;
 }
+
+// A graph has an euler path when
+// 1. Every vertex has an even degree and one connected graph OR
+// 2. There is only two vertices that have odd degree and one connected graph.
+
+bool hasEulerPath(Graph g, int src, int dest) {
+    if (src != dest) {
+        if (GraphGetDegree(g, src) % 2 == 0 || GraphGetDegree(g, dest) % 2 == 0) {
+            return false;
+        }
+    }
+    for (int v = 0; v < GraphNumVertices(g); v++) {
+        if (v != src && v != dest && GraphGetDegree(g, v) % 2 == 1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+/* Pseudo Algorithm
+hasEulerPath(G,src,dest):
+|  Input  graph G, vertices src,dest
+|  Output true if G has Euler path from src to dest
+|         false otherwise
+|
+|  if src≠dest then
+|     if degree(G,src) is even ∨ degree(G,dest) is even then
+|        return false
+|     end if
+|  end if
+|  for all vertices v ∈ G do
+|     if v≠src ∧ v≠dest ∧ degree(G,v) is odd then
+|        return false
+|     end if
+|  end for
+|  return true
+*/
