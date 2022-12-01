@@ -17,6 +17,32 @@ void selectionSort(int a[], int low, int high) {
     }
 }
 
+// Stable Selection Sort
+void stableSelectionSort(int[] a, int n) {
+    // Iterate through array elements
+    for (int i = 0; i < n - 1; i++) {
+
+        // Loop invariant : Elements till
+        // a[i - 1] are already sorted.
+
+        // Find minimum element from
+        // arr[i] to arr[n - 1].
+        int min = i;
+        for (int j = i + 1; j < n; j++) {
+            if (a[min] > a[j]) {
+                min = j;
+            }
+        }
+        // Move minimum element at current i.
+        int key = a[min];
+        while (min > i) {
+            a[min] = a[min - 1];
+            min--;
+        }
+        a[i] = key;
+    }
+}
+
 // Recursive Selection Sort
 // Assumption: 0 <= a <= b < size of arr
 int fnA(int arr[], int a, int b) {
