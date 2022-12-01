@@ -1,3 +1,4 @@
+// Optimized implementation of Heap Data Structure
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -35,6 +36,7 @@ Heap newHeap(int N) {
 }
 
 // Insert Heap -> 2 step process
+// Move item up into correct position O(log n)
 void HeapInsert(Heap h, Item it) {
     // Check for space in Heap
     assert(h->nitems < h->nslots);
@@ -63,8 +65,8 @@ void swap(Item a[], int i, int j) {
 
 
 // Delete root of Heap -> 3 step process
+// Move new root down into correct position O(log n)
 Item HeapDelete(Heap h) {
-    // Dont need this line if not returning the delete item
     Item top = h->items[1];
 
     // overwrite the first item by the last item
@@ -100,35 +102,3 @@ void fixDown(Item a[], int i, int N) {
 // Item leave(PQueue pq) {
 //     return HeapDelete(pq);
 // }
-
-void printHeap(Heap h) {
-    for (int i = 1; i <= h->nitems; i++) {
-        printf("%c ", h->items[i]);
-    }
-    printf("\n");
-}
-
-int main(void) {
-    Heap array = newHeap(10);
-    HeapInsert(array, 'Q');
-    HeapInsert(array, 'N');
-    HeapInsert(array, 'H');
-    HeapInsert(array, 'D');
-    HeapInsert(array, 'K');
-    HeapInsert(array, 'E');
-    printHeap(array);
-    
-    // HeapInsert(array, 'S');
-    // printHeap(array);
-
-
-    // HeapInsert(array, 'P');
-    // printHeap(array);
-
-    HeapDelete(array);
-    printHeap(array);
-    HeapDelete(array);
-    printHeap(array);
-
-    return 0;
-}
