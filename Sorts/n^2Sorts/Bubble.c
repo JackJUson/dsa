@@ -4,6 +4,8 @@
 
 void swap(int *x, int *y);
 
+// Bubble Sort: Stable Adapative O(n^2)
+
 // Bubble sort with second loop iterating backwards 
 // and sorting section of array between low and high index
 void BubbleSort(Item a[], int low, int high) {
