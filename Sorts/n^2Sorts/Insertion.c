@@ -3,6 +3,7 @@
 #include <stdbool.h>
 
 // Insertion Sort: Stable Adapative O(n^2)
+// Fastest Sort for already sorted list O(n)
 
 // Insertion Sort with second loop iterating backwards
 void InsertionSort(int a[], int low, int high) {
