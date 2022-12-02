@@ -1,10 +1,8 @@
 // Optimized implementation of Quick sort
 #include <stdio.h>
 #include <stdbool.h>
-#include <assert.h>
 
-void swapA(Item a[], int i, int j);
-void swapD(int *x, int *y);
+// Quick Sort: Non-Stable Possibly-Adapative O(n log n)
 
 // Simple Quick Sort
 void quickSort(int array[], int low, int high) {
