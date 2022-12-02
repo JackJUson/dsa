@@ -24,6 +24,8 @@ void quickSort(int array[], int low, int high) {
 }
 
 // Naive QuickSort: Partition from left most element as pivot
+// Fastest for random sort O(n log n)
+// Worst case sorted and reverse order O(n^2)
 int partition(int array[], int low, int high) {
     int pivot = array[low];     // pivot
     int left = low + 1;
@@ -68,6 +70,30 @@ int partition(int array[], int low, int high) {
   // return the partition point
   return (i + 1);
 }
+
+/* 
+    Partition gives quicksort advantage as the items are in the correct
+    order in relation to the pivot. This means that we never have to
+    compare elements on the left side of the partition to elements on the
+    right side of the partition.
+*/
+
+/*
+    Quicksort usually has an absolute worst-case time requirement of O(n^2).
+    The worst case occurs when, at every step, the partition procedure splits
+    an n-length array into arrays of size 1 and n - 1. This "unlucky" selection
+    of pivot requires O(n) recursive calls, leading to a O(n^2) worst-case.
+
+    Hence either choosing maximum or minimum element is the pivot will lead
+    to worst case quicksort O(n^2).
+
+    Sorted array -> left most or right most -> Worst case
+    Reverse order array -> left most or right most -> Worst case
+    All elements equal -> left most or right most -> Worst case
+
+    Randomised quicksort -> unlikely to have worst case
+    Median to Three quicksort -> unlikely to have worst case
+*/
 
 void swapA(Item a[], int i, int j) {
     Item temp = a[i];
