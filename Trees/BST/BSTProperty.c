@@ -122,7 +122,7 @@ int isHeightBalanced(Tree t) {
     int hl = isHeightBalanced(t->left);
     int hr = isHeightBalanced(t->right);
 
-    if (hl == NOT_HEIGHT_BALANCED || hr == NOT_HEIGHT_BALANCED) {
+    if (hl == -1 || hr == -1) {
         return NOT_HEIGHT_BALANCED;
     }
 
@@ -132,4 +132,29 @@ int isHeightBalanced(Tree t) {
     }
 
     return (hl > hr ? hl : hr) + 1;
+}
+
+// Second height balance check function
+bool isBalanced(struct node* root)
+{
+    /* for height of left subtree */
+    int lh;
+ 
+    /* for height of right subtree */
+    int rh;
+ 
+    /* If tree is empty then return true */
+    if (root == NULL)
+        return 1;
+ 
+    /* Get the height of left and right sub trees */
+    lh = height(root->left);
+    rh = height(root->right);
+ 
+    if (abs(lh - rh) <= 1 && isBalanced(root->left)
+        && isBalanced(root->right))
+        return 1;
+ 
+    /* If we reach here then tree is not height-balanced */
+    return 0;
 }
