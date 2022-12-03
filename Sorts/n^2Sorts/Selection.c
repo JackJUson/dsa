@@ -5,6 +5,8 @@
 void swap(int *x, int *y);
 
 // Selection Sort: Non-stable Non-Adapative = Always O(n^2)
+// Selection sort always makes the same number of comparisons for a given array size n .
+// Therefore (n*(n - 1))/2 comparisons made
 
 // Iterative Selection Sort
 void selectionSort(int a[], int low, int high) {

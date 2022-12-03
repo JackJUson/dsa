@@ -28,8 +28,8 @@ void medianOfThree(int array[], int low, int high) {
 
 // Regular partition
 int partition(int array[], int low, int high) {
-    int pivot = array[low];     // pivot
-    int left = low + 1;
+    int pivot = array[(low + high) / 2];     // pivot
+    int left = low;
     int right = high;
     while (left < right) {
         while (left < right && array[left] <= pivot) left++;

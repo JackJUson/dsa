@@ -6,15 +6,19 @@
 // Fastest Sort for already sorted list O(n)
 
 // Insertion Sort with second loop iterating backwards
-void InsertionSort(int a[], int low, int high) {
+void InsertionSort(int array[], int low, int high) {
+    int comparison = 0;
     for (int i = low + 1; i <= high; i++) {
-        int key = a[i];
-        for (int j = i; j > lo; j--) {
-            if (!(key < a[j - 1])) break;
-            a[j] = a[j - 1];
+        int key = array[i];
+        int j;
+        for (j = i; j > low; j--) {
+            if (!(key < array[j - 1])) break;
+            array[j] = array[j - 1];
+            comparison++;
         }
-        a[j] = key;
+        array[j] = key;
     }
+    printf("%d: comparisons\n", comparison);
 }
 
 // Insertion Sort with while loop
@@ -32,4 +36,22 @@ void InsertionSort(int array[], int size) {
         }
         array[j + 1] = key;
     }
+}
+
+void printArray(int array[], int size) {
+    for (int i = 0; i < size; ++i) {
+        printf("%d  ", array[i]);
+    }
+    printf("\n");
+}
+
+int main(void) {
+    int array[] = {4, 3, 6, 8, 2};
+    int size = sizeof(array) / sizeof(array[0]);
+    printArray(array, size);
+
+    InsertionSort(array, 0, size - 1);
+    
+    printf("Sorted Array in Ascending Order:\n");
+    printArray(array, size);
 }
