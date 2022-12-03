@@ -158,3 +158,24 @@ bool isBalanced(struct node* root)
     /* If we reach here then tree is not height-balanced */
     return 0;
 }
+
+// Checks if tree is symmetric around its center
+bool isSymmetric(struct TreeNode* root){
+    if (root == NULL) {
+        return true;
+    }
+    return isParallelCheck(root->left, root->right);
+}
+
+bool isParallelCheck(struct TreeNode *a, struct TreeNode *b) {
+    if (a == NULL && b == NULL) {
+        return true;
+    }
+    if (a == NULL || b == NULL) {
+        return false;
+    } 
+    if (a->val != b->val) {
+        return false;
+    }
+    return isParallelCheck(a->left, b->right) && isParallelCheck(a->right, b->left);
+}
