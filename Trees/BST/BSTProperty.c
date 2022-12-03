@@ -90,6 +90,17 @@ int BSTreeCountOdds(Tree t) {
     }
 }
 
+/* Sum all the odd values in the tree */
+int TreeSumOdds(Tree t) {
+	if (t == NULL) {
+		return 0;
+	} else if (t->value % 2 != 0) {
+		return t->value + TreeSumOdds(t->left) + TreeSumOdds(t->right);
+	} else {
+		return TreeSumOdds(t->left) + TreeSumOdds(t->right);
+	}
+}
+
 /* Counts the internal node of a tree (Internal node = node with least one subtree)*/
 int BSTreeCountInternal(Tree t) {
     if (t == NULL) {
@@ -134,29 +145,20 @@ int isHeightBalanced(Tree t) {
     return (hl > hr ? hl : hr) + 1;
 }
 
-// Second height balance check function
-bool isBalanced(struct node* root)
-{
-    /* for height of left subtree */
-    int lh;
- 
-    /* for height of right subtree */
-    int rh;
- 
-    /* If tree is empty then return true */
-    if (root == NULL)
-        return 1;
- 
-    /* Get the height of left and right sub trees */
-    lh = height(root->left);
-    rh = height(root->right);
- 
-    if (abs(lh - rh) <= 1 && isBalanced(root->left)
-        && isBalanced(root->right))
-        return 1;
- 
-    /* If we reach here then tree is not height-balanced */
-    return 0;
+// Recursive height balance check function
+bool TreeIsPerfectlyBalanced(Tree t) {
+	if (t == NULL) {
+		return true;
+	}
+	
+	int l = TreeNumNodes(t->left);
+	int r = TreeNumNodes(t->right);
+	if (l - r > 1 || r - l > 1) {
+		return false;
+	} else {
+		return TreeIsPerfectlyBalanced(t->left) &&
+		       TreeIsPerfectlyBalanced(t->right);
+	}
 }
 
 // Checks if tree is symmetric around its center
@@ -166,7 +168,6 @@ bool isSymmetric(struct TreeNode* root){
     }
     return isParallelCheck(root->left, root->right);
 }
-
 bool isParallelCheck(struct TreeNode *a, struct TreeNode *b) {
     if (a == NULL && b == NULL) {
         return true;
@@ -178,4 +179,47 @@ bool isParallelCheck(struct TreeNode *a, struct TreeNode *b) {
         return false;
     }
     return isParallelCheck(a->left, b->right) && isParallelCheck(a->right, b->left);
+}
+
+/* Get the kth smallest value in a tree (using array)*/
+int BSTreeGetKth(BSTree t, int k) {
+	int numN = TreeNumNodes(t);
+	int *array = malloc(numN * sizeof(int));
+	int index = 0;
+	saveTreeToArray(t, array, &index);
+	int save = array[k];
+	free(array);
+	return save;
+}
+void saveTreeToArray(BSTree t, int *array, int *index) {
+    if (t != NULL) {
+        saveTreeToArray(t->left, array, index);
+		array[*index] = t->value;
+		(*index)++;
+        saveTreeToArray(t->right, array, index);
+    }
+}
+
+// Get the kth smallest value in a tree
+int BSTreeGetKth(BSTree t, int k) {
+	int leftSize = BSTreeSize(t->left);
+	if (k == leftSize) {
+		return t->value;
+	} else if (k < leftSize) {
+		return BSTreeGetKth(t->left, k);
+	} else {
+		return BSTreeGetKth(t->right, k - leftSize - 1);
+	}
+}
+
+// Copies a tree up to a given depth
+Tree TreeCopy(Tree t, int depth) {
+	if (t == NULL || depth < 0) {
+		return NULL;
+	}
+	
+	Tree copy = TreeCreate(t->value);
+	copy->left = TreeCopy(t->left, depth - 1);
+	copy->right = TreeCopy(t->right, depth - 1);
+	return copy;
 }

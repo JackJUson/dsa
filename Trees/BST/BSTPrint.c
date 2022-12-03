@@ -67,14 +67,13 @@ void BSTreeLevelOrder(Tree t) {
 	}
 }
 
-// Level order BST traversal without Queue
+// Prints given tree in Level order BST traversal without Queue
 void BSTPrintLevelOrder(Tree t) {
     int h = height(t);
     for (int i = 1; i <= h; i++) {
         CurrentLevel(t, i);
     }
 }
-
 void CurrentLevel(Tree t, int level) {
     if (t == NULL) {
         return;

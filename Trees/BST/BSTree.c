@@ -6,11 +6,15 @@
 #include "BSTPrint.h"
 
 Tree TreeCreate(Item it) {
-    Tree root = malloc(sizeof(struct Node));
-    data(root) = it;
-    left(root) = NULL;
-    right(root) = NULL;
-    return root;
+    Tree t = malloc(sizeof(struct Node));
+    if (t == NULL) {
+		fprintf(stderr, "Insufficient memory!\n");
+		exit(EXIT_FAILURE);
+	}
+    data(t) = it;
+    left(t) = NULL;
+    right(t) = NULL;
+    return t;
 }
 
 void TreeFree(Tree t) {
