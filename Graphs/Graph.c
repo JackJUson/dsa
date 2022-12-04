@@ -87,3 +87,34 @@ void freeGraph(Graph g) {
     free(g->edges);
     free(g);
 }
+
+bool GraphHasCycle(Graph g) {
+    bool *visited = calloc(g->nV, sizeof(bool));
+    assert(visited != NULL); // lazy error checking
+    
+    for (int v = 0; v < g->nV; v++) {
+        if (!visited[v] && doHasCycle(g, v, v, visited)) {
+            free(visited);
+            return true;
+        }
+    }
+
+    free(visited);
+    return false;
+}
+
+static bool doHasCycle(Graph g, Vertex v, Vertex prev, bool *visited) {
+    visited[v] = true;
+    for (int w = 0; w < g->nV; w++) {
+        if (g->edges[v][w] != 0.0) {
+            if (!visited[w]) {
+                if (doHasCycle(g, w, v, visited)) {
+                    return true;
+                }
+            } else if (w != prev) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
