@@ -1,0 +1,16 @@
+Question 5
+
+(a) What is the difference between an Euler path and a Hamilton path?
+    Euler path is a path on a graph that visits every edge of the graph exactly 
+    once.
+    Hamiltonian path is a path on a graph that visits every vertex of the graph 
+    exactly once.
+
+(b) Does the graph have any Euler paths? If so, give one of them. If not, explain why.
+    There is no Euler path because the graph has more than 2 vertices of odd degree.
+
+
+(c) Does the graph have any Hamilton paths? If so, give one of them. If not, explain why.
+    Many Hamilton paths. One would be 0 -> 1 -> 2 -> 3.
+
+

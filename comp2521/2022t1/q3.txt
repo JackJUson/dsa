@@ -1,0 +1,39 @@
+Question 3
+
+(a) 
+(a1) What value(s) would be stored in the root node of the above 2-3-4 
+     tree after the insertion of the value 8? 
+     Justify your answer.
+     The root node contains 12, 35, 60.
+     This is because 8 is smaller than 12 and since the left most
+     child node of the root node does not yet contain 3 values, 8
+     can therefore be stored in the left most child node.
+
+(a2) What value(s) would be stored in the node that now contains 8? 
+     Justify your answer. 
+     The node containing 8 has 1, 7, 8.
+     Since 8 is smaller than the smallest value of the root values 12,
+     and also since the child node only contains 2 items. 8 can be stored
+     with 1 and 7 to make a complete full node.
+
+(b) 
+(b1) What value(s) would be stored in the root node of the above 2-3-4 
+     tree after the insertion of the value 50? 
+     Justify your answer.
+     The root node only contains the value 35.
+     This is because when the value 50 is inserted, the child node
+     containing 36, 44 and 57 becomes full with node 50 and brings
+     the middle index value 44 up to the parent node. However since 
+     the parent node is also completely full, the parent node itself
+     brings the middle index value 35 up above its current level and
+     sets 35 as the new root containing a left child node of 12 and a
+     right child node containing 44 and 60.
+
+(b2) What value(s) would be stored in the node that now contains 50? 
+     Justify your answer.
+     The node containing 50 has 50, 57.
+     Since the original node before 50 was inserted was full with
+     36, 44 and 57, after inserting 50, the middle index value which
+     is 44 would be brought up leaving 36 split with 50 and 57.
+
+

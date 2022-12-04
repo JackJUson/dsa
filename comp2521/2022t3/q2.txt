@@ -1,0 +1,28 @@
+Question 2
+
+(a) What are the time complexities of fnA() and fnB() in terms of a and
+    b? Justify your answer.
+
+    fnA() = O(b - a) Because the recursion will occur until a == b. 
+    And since b is greater or equal to a, the recursion will occur continuously 
+    until the addition of 1, eventually leads to a equalling to b. Hence the
+    number of calls is equal to the difference between a and b. Rest of the
+    computation in the function is O(1), therefore fnA() is O(b - a)
+
+
+
+    fnB() = O((b - a)^2). 
+    This is because fnB() functions similarly to fnA(), but it also calls
+    fnA() on each call of fnB(). Therefore fnB() is O((b - a)^2).
+
+
+(b) What does the function fn() do? Justify your answer.
+    
+    The function fn() performs selection sort on arr array. This is because
+    together, the functions fnA() and fnB() mimics the behaviour of selection
+    sort but recursively rather than interative selection sort.
+    The fnA() function finds the index of the minimum element in the subarray.
+    The fnB() function calls fnA() and performs the swap and then repeats this
+    for recursively smaller subarrays.
+
+

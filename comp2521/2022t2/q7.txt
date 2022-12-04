@@ -1,0 +1,30 @@
+Question 7
+
+(a) How many items are examined in searching for the key 42? Justify
+    your answer.
+
+    4 items
+    9 -> 20 -> 31 -> 42
+    The hash function gives the index 9 for the key 42. Index 9 contains
+    the items 9, 20, 31, 42, 53 and etc. Only 9, 20, 31 and 42 needs to be
+    examined to find 42. Therefore 4 items are examined.
+
+(b) How many items are examined in searching for the key 111? Justify
+    your answer.
+
+    10 items
+    1 -> 12 -> 23 -> 34 -> 45 -> 56 -> 67 -> 78 -> 89 -> 100
+    The has function gives the index 1 for the key 111. Index 1 contains
+    the items 1, 12, 23, 34, 45, 56, 67, 78, 89 and 100. The search would
+    examine all the items and then condlue that 111 does not exist.
+    Therefore 10 items examined.
+
+(c) What is the worst-case search cost after N total items have been
+    inserted? Justify your answer.
+
+    Since we are inserting all the numbers from 1 to N, the items will be 
+    uniformly distributed across all the indexes. Thus the longest chain
+    length will be ceil(N/11). Hence worst case search cost in terms of
+    the number of items examied is ceil(n/11).
+    
+

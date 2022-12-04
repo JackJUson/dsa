@@ -1,0 +1,48 @@
+Question 3
+
+(a) Which of the given sequences (A, B, C or D) would be produced by a
+    valid post-order traversal of the same tree? Explain your answer.
+
+    B
+    Since post order traversal would produce the parent root of any
+    subtree last before the left or right child, the first 3 values
+    of the sequence has to be 2 8 7. Now in the first 3 values, 7 
+    represents the parent node of left child 2 and right child 8 and
+    we know this by the fact that pre order traversal which gave 
+    16 10 7 2 AND THEN 8, and since pre order traversal traverses all
+    the way down to the left most (smallest value of tree) leaf of 
+    the tree, the root being 16 and all the way down to the smallest leaf 
+    here being 2, indicating that 7 was the parent node of the leaf and 
+    left child node 2. And also since 8 came after the smallest value
+    2, this indicates that 8 is the right child of the parent node 7,
+    since pre order traversal has to go to the right child after left.
+    (Pre order = parent -> left child -> right child produce).
+
+    By this evidence, post order traversal has to produce both its
+    left and right child first before the parent, indicating that B 
+    is the correct sequence since 2 and 8 are the child and 7 as parent.
+    2 8 7 14 10 20 33 40 24 16
+
+    According to the pre-order traversal, the tree contains the subtree
+     7
+    / \
+   2   8
+   The post-order traversal of this subtree is 2, 8, 7. Therefore, the 
+   pre-order traversal of the whole tree should contain the subsequence
+   2, 8, 7, but only option B contains this subsequence.
+   Therefore the answer is B.
+
+(b)
+
+Value in the root node: 36
+
+Value in the left child (of the root): 32
+
+Value in the right child (of the root): 39
+
+(c)
+
+i.  Value(s) in the root node: 20
+
+ii. Value(s) in the node that now contains 62: 35, 60, 62
+

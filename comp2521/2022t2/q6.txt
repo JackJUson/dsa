@@ -1,0 +1,31 @@
+Question 6
+
+Which of the data structures is most suitable? Justify your answer.
+You must use time complexities as a basis for your justification.
+
+
+Hash tables do not maintain the order of items, which would make it
+difficult to implement Pop and PrintInOrder efficiently, so we can dismiss
+it immediately.
+
+Ordered linked lists and ordered arrays incur an O(n) cost for Push due
+to needing to find the correct position to insert (in the case of linked
+lists) or to shift items (in the case of arrays). The remaining data
+structures can perform Push more efficiently, so we can dismiss these.
+
+For an AVL tree that is ordered by priority:
+- Push is O(log n), as we simply insert into the AVL tree
+- Pop is O(log n), as we simply delete the highest priority item from the
+  AVL tree
+- PrintInOrder is O(n), as we simply perform a reverse in-order traversal
+
+For a heap:
+- Push is O(log n)
+- Pop is O(log n)
+- However, a heap does not store a global ordering of items, only a
+  heap ordering where each item is greater than its children. To implement
+  PrintInOrder we must pop all the items and print each item as it is
+  removed. This is O(n log n). We then need to re-insert all the items,
+  as PrintInOrder is not supposed to modify the heap, which is O(n log n).
+
+Thus the most suitable data structure is an AVL tree.
