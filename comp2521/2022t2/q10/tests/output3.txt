@@ -1,8 +1,0 @@
-
-Displaying tree (sideways)
-
-	60
-50
-	30
-
-maxDiff returned: 0

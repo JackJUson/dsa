@@ -1,9 +1,0 @@
-File system:
-/
-    a
-    b.txt
-    c.txt
-    d
-    e.txt
-
-Total text size: 49
